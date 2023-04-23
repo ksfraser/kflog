@@ -1,6 +1,6 @@
 {
-  "name": "ksfraser/eventloop",
-  "description": "A set of event loop classes.",
+  "name": "ksfraser/kflog",
+  "description": "A set of classes for logging.  Probably going to be replaced with monolog or something similar",
   "type": "library",
   "authors": [
     {
@@ -10,7 +10,6 @@
   ],
   "minimum-stability": "dev",
   "require": {
-      "ksfraser/kfLog": "*"
   },
   "autoload": {
     "psr-4": {
