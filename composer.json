@@ -10,7 +10,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-      "monolog/monolog": "^1.0",
+      "monolog/monolog": "^2.0",
       "ksfraser/origin": "dev-main"
   },
  "repositories": [
