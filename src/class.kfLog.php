@@ -1,6 +1,12 @@
 <?php
 
 /******************************************************
+* This file is part of the ksfraser packages.         
+******************************************************/
+
+namespace ksfraser;
+
+/******************************************************
 * 20230423 working to convert from PEAR LOG to monolog
 ******************************************************/
 
@@ -8,9 +14,15 @@
 
 $path_to_root="../..";
 
-require_once( 'class.origin.php' );
-require_once( dirname( __FILE__ ) . '/../../pear/log/Log.php' );
+//require_once( 'class.origin.php' );
+use ksfraser\origin;
+
+//20230503 Repackage using composer
+//require_once( dirname( __FILE__ ) . '/../../pear/log/Log.php' );
 //@include_once ( 'Log/file.php' );
+use pear\log;
+
+
 require_once( 'class.write_file.php' );
 require_once( 'defines.inc.php' );
 
@@ -59,6 +71,7 @@ use Monolog\Handler\StreamHandler;
 * to log actions to various levels.
 *
 *********************************************************/
+//class kfLog extends origin implements LoggerInterface
 class kfLog extends origin
 {
 	var $logobject;
@@ -105,9 +118,13 @@ class kfLog extends origin
 	function initMonolog( $channelName, $loglevel )
 	{
 		$this->bUseMonolog = true;
-		$this->monolog_logger = new Logger( $channelName );
+			//$log = new Monolog\Logger('name');
+			//$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
+			//$log->warning('Foo');
+		$this->monolog_logger = new Monolog\Logger( $channelName );
 		//File fallback
-		$this->monolog_logger->pushHandler( new StreamHandler( __DIR__ . "/" . $this->default_filename . "_debug_log." . date( 'YmdHis' ) . ".txt", Level::Debug ) );
+		$this->monolog_logger->pushHandler( new Monolog\Handler\StreamHandler( __DIR__ . "/" . $this->default_filename . "_debug_monolog." . date( 'YmdHis' ) . ".txt", Level::Debug ) );
+		$this->monolog_loger->info('Monolog Logger setup');
 	}
 	function __destruct()
 	{
