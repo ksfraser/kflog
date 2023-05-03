@@ -72,7 +72,7 @@ use Monolog\Handler\StreamHandler;
 *
 *********************************************************/
 //class kfLog extends origin implements LoggerInterface
-class kfLog extends origin
+class kflog extends origin
 {
 	var $logobject;
 	var $objWriteFile;
