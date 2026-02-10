@@ -31,7 +31,7 @@
         "psr-4": {"ksfraser\\kflog\\": "src/"}
     },
     "autoload-dev": {
-        "psr-4": {"ksfraser\\kfLog\\": "tests/"}
+        "psr-4": {"ksfraser\\kflog\\Tests\\": "tests/"}
     },
     "provide": {
         "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
